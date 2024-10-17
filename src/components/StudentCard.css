@@ -1,0 +1,77 @@
+span{
+    display: block;
+}
+
+.studenCard{
+    width: 350px;
+    height: 200px;
+    background-color: cadetblue;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+}
+
+.studentImg{
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.studentDetailsBx{
+    margin-left: 5px;
+    flex-grow: 1;
+    min-width: 0;
+    text-align: start;
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.studentName{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.studentRole{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 10px;
+}
+
+.studentEmail{
+    margin-left: 5px;
+}
+
+.blockBtn{
+    text-align: center;
+    width: 80px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 5px;
+    line-height: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color .2s linear, color .2s linear;
+}
+
+.blockBtn:hover{
+    background-color: black;
+    color: white;
+}
+
+.detailsBtn{
+    text-align: center;
+    width: 80px;
+    height: 27px;
+    background-color:  black;
+    color: white;
+    border-radius: 5px;
+    line-height: 27px;
+    font-weight: 500;
+    margin-left: 10px;
+    cursor: pointer;
+}

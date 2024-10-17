@@ -1,10 +1,13 @@
 import './App.css';
 import Students from './pages/Students';
+import { NavBarProvider } from './provider/NavBarProvider';
 
 function App() {
   return (
     <div className="App">
-      <Students />
+      <NavBarProvider>
+        <Students />
+      </NavBarProvider>
     </div>
   );
 }

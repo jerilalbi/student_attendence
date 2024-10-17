@@ -6,7 +6,7 @@ import { NavBarContext } from "../provider/NavBarProvider";
 
 function Header() {
   const [openSearch, setOpenSearch] = useState(false);
-  const { navPos, setNavPos } = useContext(NavBarContext);
+  const { navPos, setNavPos, query, setQuery } = useContext(NavBarContext);
   const searchBxRef = useRef(null);
 
   const navBarOptions = [
@@ -30,6 +30,10 @@ function Header() {
     },
   ];
 
+  const searchQuery = (query) => {
+    setQuery(query);
+  };
+
   return (
     <div className="header">
       <span className="titleName">Students</span>
@@ -37,7 +41,15 @@ function Header() {
         ref={searchBxRef}
         className={`searchBx ${openSearch ? "active" : ""}`}
       >
-        <input type="text" name="" id="search" className="searchInput" />
+        <input
+          type="text"
+          name=""
+          id="search"
+          className="searchInput"
+          placeholder="Search by Name"
+          value={query}
+          onChange={(e) => searchQuery(e.target.value)}
+        />
       </div>
       <div className="optionBx">
         <FontAwesomeIcon

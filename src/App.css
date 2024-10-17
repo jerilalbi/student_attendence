@@ -5,10 +5,4 @@
 
 .App {
   text-align: center;
-  /* background-image: radial-gradient(farthest-side at 60% 20%, var(--secondary-color), var(--primary-color)); */
-  /* background-color: teal;
-  width: 100%;
-  min-height: 100vh;
-  padding: 12px;
-  box-sizing: border-box; */
 }
