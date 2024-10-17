@@ -1,13 +1,20 @@
 import React, { useContext, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faXmark,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 import { NavBarContext } from "../provider/NavBarProvider";
+import { useMediaQuery } from "react-responsive";
 
 function Header() {
   const [openSearch, setOpenSearch] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const { navPos, setNavPos, query, setQuery } = useContext(NavBarContext);
   const searchBxRef = useRef(null);
+  const isMobile = useMediaQuery({ query: "(max-width: 740px)" });
 
   const navBarOptions = [
     {
@@ -51,7 +58,7 @@ function Header() {
           onChange={(e) => searchQuery(e.target.value)}
         />
       </div>
-      <div className="optionBx">
+      <div className="optionBx" style={{ width: isMobile ? "200px" : "500px" }}>
         <FontAwesomeIcon
           icon={openSearch ? faXmark : faMagnifyingGlass}
           onClick={() => {
@@ -60,16 +67,33 @@ function Header() {
           style={{ height: "20px", width: "20px", cursor: "pointer" }}
         />
 
-        {navBarOptions.map((val) => (
-          <div
-            className={`options ${
-              navPos === val.name.toLowerCase() ? "active" : ""
-            }`}
-            onClick={val.onTap}
-          >
-            {val.name}
-          </div>
-        ))}
+        {isMobile ? (
+          <FontAwesomeIcon
+            icon={openMenu ? faXmark : faBars}
+            onClick={() => {
+              openMenu ? setOpenMenu(false) : setOpenMenu(true);
+            }}
+            style={{ height: "20px", width: "20px", cursor: "pointer" }}
+          />
+        ) : (
+          navBarOptions.map((val) => (
+            <div
+              className={`options ${
+                navPos === val.name.toLowerCase() ? "active" : ""
+              }`}
+              onClick={val.onTap}
+            >
+              {val.name}
+            </div>
+          ))
+        )}
+        <div className={`sideMenu ${openMenu ? "active" : ""}`}>
+          {navBarOptions.map((val) => (
+            <div style={{ cursor: "pointer" }} onClick={val.onTap}>
+              {val.name}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

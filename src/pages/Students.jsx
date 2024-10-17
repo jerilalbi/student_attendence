@@ -77,11 +77,10 @@ function Students() {
       style={{
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "teal",
         padding: "15px 24px",
         boxSizing: "border-box",
-        // backgroundImage:
-        //   "radial-gradient(farthest-side at 60% 20%, var(--secondary-color), var(--primary-color))",
+        backgroundImage:
+          "radial-gradient(farthest-side at 60% 20%, var(--secondary-color), var(--primary-color))",
       }}
     >
       <Header />
